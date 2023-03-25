@@ -26,4 +26,7 @@
     "password":"text notNULL",
     "fullname":"text notNULL"
 }
-- users table create query script : "create table users(id serial primary key,email text not null unique,password text not null,fullname text not null")
+- users table create query script : `create table users(id serial primary key,email text not null unique,password text not null,fullname text not null)`
+
+## postman
+"test.postman_collection.json"
