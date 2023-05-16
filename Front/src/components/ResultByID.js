@@ -38,6 +38,77 @@ function ResultByID() {
             age: 30,
             occupation: 'Designer',
         },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },{
+            id: 2,
+            name: 'Jane Smith',
+            age: 30,
+            occupation: 'Designer',
+        },
 
         // Add more profiles here
     ];
