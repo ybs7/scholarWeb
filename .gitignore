@@ -6,6 +6,8 @@
 # Node artifact files
 node_modules/
 dist/
+.env
+Back/.env
 
 # Compiled Java class files
 *.class
@@ -297,4 +299,3 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-
