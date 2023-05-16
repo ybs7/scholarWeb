@@ -19,7 +19,7 @@
 -- alter table users
 -- add column fullname text not null default ''
 
-select * from users
+-- select * from users
 
 -- update users
 -- set fullname ='Mert'

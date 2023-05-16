@@ -13,7 +13,8 @@ const {
 	WEBASSEMBLY_MODULE_TYPE_ASYNC,
 	JAVASCRIPT_MODULE_TYPE_ESM,
 	JAVASCRIPT_MODULE_TYPE_DYNAMIC,
-	WEBASSEMBLY_MODULE_TYPE_SYNC
+	WEBASSEMBLY_MODULE_TYPE_SYNC,
+	ASSET_MODULE_TYPE
 } = require("../ModuleTypeConstants");
 const Template = require("../Template");
 const { cleverMerge } = require("../util/cleverMerge");
@@ -511,7 +512,7 @@ const applyModuleDefaults = (
 		D(module, "unsafeCache", false);
 	}
 
-	F(module.parser, "asset", () => ({}));
+	F(module.parser, ASSET_MODULE_TYPE, () => ({}));
 	F(module.parser.asset, "dataUrlCondition", () => ({}));
 	if (typeof module.parser.asset.dataUrlCondition === "object") {
 		D(module.parser.asset.dataUrlCondition, "maxSize", 8096);
@@ -961,6 +962,7 @@ const applyOutputDefaults = (
 			() =>
 				output.uniqueName.replace(/[^a-zA-Z0-9\-#=_/@.%]+/g, "_") || "webpack"
 		);
+		D(trustedTypes, "onPolicyCreationFailure", "stop");
 	}
 
 	/**
