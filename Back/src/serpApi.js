@@ -3,7 +3,7 @@ import SerpApi from 'google-search-results-nodejs'
 const API_KEY = process.env.API_KEY;
 const search = new SerpApi.GoogleSearch("3123940f5057559598689527ddaa958fec30e00c5b98241487c3c6b55e4ccc06");
 
-const user = "6ZiRSwQAAAAJ";
+const user = "xhHbbOsAAAAJ";
 
 const params = {
   engine: "google_scholar_author",

@@ -7,6 +7,7 @@ import {Navigate, useNavigate} from 'react-router-dom';
 function SearchPopUp(props) {
 
     const [authorName, setAuthorName] = useState('');
+    const [authorID, setAuthorID] = useState('');
     const [showSearchPopUp, setShowSearchPopUp] = useState(true);
     const navigate = useNavigate();
     const handleSearchByName = () => {
@@ -19,13 +20,12 @@ function SearchPopUp(props) {
         // Perform search by ID logic
         // Update the main page with the search results
 
-        setShowSearchPopUp(false);
-        navigate('/resultbyid');
+        // setShowSearchPopUp(true);        
     };
 
-    if (!showSearchPopUp) {
-        return <Navigate to="/resultbyid" replace />;
-    }
+    console.log(authorID);
+    console.log(authorName);
+
 
     return (
         <div className="flex justify-center items-center h-screen grid place-items-center">
@@ -50,10 +50,10 @@ function SearchPopUp(props) {
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                             id="name"
                             type="text"
-                            // value={name}
-                            // onChange={(e) => {
-                            //     setName(e.target.value);
-                            // }}
+                            value={authorID}
+                            onChange={(e) => {
+                                setAuthorID(e.target.value);
+                            }}
                         />
                     </div>
                 </div>

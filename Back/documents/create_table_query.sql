@@ -44,3 +44,16 @@ CREATE TABLE article_cited_by(
 	PRIMARY KEY(article_cited_by_id),
 	CONSTRAINT fk_author_article FOREIGN KEY(author_article_id) REFERENCES author_articles(author_article_id)
 )
+-- New table
+CREATE TABLE coAuthors(
+	coAuthors_name text,
+	coAuthors_link text,
+	coAuthors_id text,
+	coAuthors_photo text,
+	coAuthors_affilations text,
+	coAuthors_email text,
+	author_id text,
+	PRIMARY KEY(coAuthors_id),
+	CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES authors(author_id)
+
+)
