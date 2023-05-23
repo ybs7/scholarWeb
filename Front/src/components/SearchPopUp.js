@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import colors from "tailwindcss/colors";
-import {Navigate, useNavigate} from 'react-router-dom';
-
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function SearchPopUp(props) {
 
@@ -16,6 +15,7 @@ function SearchPopUp(props) {
     };
 
     const handleSearchById = () => {
+        
 
         // Perform search by ID logic
         // Update the main page with the search results
@@ -25,6 +25,8 @@ function SearchPopUp(props) {
 
     console.log(authorID);
     console.log(authorName);
+
+
 
 
     return (

@@ -6,21 +6,25 @@ import SearchPopUp from './components/SearchPopUp';
 import Card from './components/Card';
 import Footer from "./components/Footer";
 import ResultByID from "./components/ResultByID";
+import Authors from './pages/authors';
+// import AuthorScrapper from './AuthorScrapper';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-
-        <Header/>
-
-        <SearchPopUp/>
+        <Header>
           <Routes>
+              <Route path="/home" element = {<SearchPopUp/>} />
+              <Route path="/authors" element = { <Authors/>} />
               <Route path="/resultbyid" element={<ResultByID />} />
-              {/* Other routes */}
-          </Routes>
+              {/* <Route path="/scrapper" element={<AuthorScrapper />} /> */}
+              {/* <Route path="/home" element = {}/>
+              <Route path="/library" element = {}/>
+              <Route path="/messages" element = {}/> */}
 
-          <Footer />
+          </Routes>
+        </Header>
       </BrowserRouter>
 
 

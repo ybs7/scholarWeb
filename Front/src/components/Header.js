@@ -3,9 +3,9 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Library', href: '#', current: false },
-  { name: 'Messages', href: '#', current: false },
+  { name: 'Home', href: '/home', current: true },
+  { name: 'Library', href: '/library', current: false },
+  { name: 'Messages', href: '/messages', current: false },
   
 ]
 
@@ -13,8 +13,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Header() {
+export default function Header(props) {
   return (
+    <>
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
@@ -151,5 +152,12 @@ export default function Header() {
         </>
       )}
     </Disclosure>
+    <div className="bg-gray-300">
+      <div className="max-w-7xl mx-auto min-h-screen px-3 py-2">
+          {props.children}
+      </div>
+    </div>
+</>
+
   )
 }
