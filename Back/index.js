@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 
 import postgresClient from './config/db.js'
 
@@ -20,6 +21,7 @@ const app = express()
 //     }
 //     next();
 // });
+app.use(cors())
 app.use(express.json())
 
 app.use('/', userRouter)

@@ -7,11 +7,14 @@ const router = express.Router()
 
 router.post("/serpapi", (req, res) => {
     let { engine, authorParam, authorInfo } = req.body; // engine =google_scholar_profiles or google_scholar_author authorParams= author_id or mauthors authorInfo =authorId or authorName
-    // axios.get(`https://serpapi.com/search.json?engine=${engine}&${authorParam}=${authorInfo}&api_key=${process.env.API_KEY}`)
-    axios.get(`https://serpapi.com/search.json?engine=google_scholar_author&author_id=LSsXyncAAAAJ&api_key=3123940f5057559598689527ddaa958fec30e00c5b98241487c3c6b55e4ccc06`)
+    
+    // axios.get(`https://serpapi.com/search.json?engine=google_scholar_author&author_id=LSsXyncAAAAJ&api_key=3123940f5057559598689527ddaa958fec30e00c5b98241487c3c6b55e4ccc06`)
+    axios.get(`https://serpapi.com/search.json?engine=${engine}&${authorParam}=${authorInfo}&api_key=${process.env.API_KEY}`)
         .then(function (response) {
             
             console.log(response);
+            // console.log( req.body);
+            // console.log( process.env.API_KEY);
             res.send(response.data);
         })
         .catch(function (error) {            

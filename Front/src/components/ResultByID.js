@@ -117,7 +117,7 @@ function ResultByID() {
         <div>
             <h1>Profiles</h1>
 
-            <div className="card-container">
+            <div className="card-container ">
                 {profiles.map((profile) => (
                     <div key={profile.id} className="card">
                         <h2>{profile.name}</h2>
