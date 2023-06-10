@@ -7,6 +7,7 @@ import Card from './components/Card';
 import Footer from "./components/Footer";
 import ResultByID from "./components/ResultByID";
 import Authors from './pages/authors';
+import AuthorProfile from './pages/authorProfile'
 // import AuthorScrapper from './AuthorScrapper';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
               <Route path="/home" element = {<SearchPopUp/>} />
               <Route path="/authors" element = { <Authors/>} />
               <Route path="/resultbyid" element={<ResultByID />} />
+              <Route path="/authorProfile" element={<AuthorProfile/>} />
               {/* <Route path="/authorProfile/:engine/:authorParam/:authorInfo" element ={<></>} */}
               {/* <Route path="/scrapper" element={<AuthorScrapper />} /> */}
               {/* <Route path="/home" element = {}/>

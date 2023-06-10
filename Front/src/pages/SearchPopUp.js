@@ -21,13 +21,14 @@ function SearchPopUp(props) {
             authorParam:'author_id',
             authorInfo:authorID
         }
-        axios.post("http://localhost:9999/serpapi",{
+        axios.post("http://localhost:9999/authorIdSearch",{
             engine: 'google_scholar_author',
             authorParam:'author_id',
             authorInfo:authorID
         }).then(function (response) {
             console.log(response);
-        })
+        }).then((data) => setAuthorData(data))
+        .catch((error) => console.error('Error fetching data:', error));
     }
     function SearchName(){
         const newSearch = {
@@ -35,7 +36,7 @@ function SearchPopUp(props) {
             authorParam:'author_id',
             authorInfo:authorID
         }
-        axios.post("http://localhost:9999/serpapi",{
+        axios.post("http://localhost:9999/authorNameSearch",{
             engine: 'google_scholar_profiles',
             authorParam:'mauthors',
             authorInfo:authorName
