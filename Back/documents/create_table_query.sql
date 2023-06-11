@@ -44,7 +44,6 @@ CREATE TABLE article_cited_by(
 	PRIMARY KEY(article_cited_by_id),
 	CONSTRAINT fk_author_article FOREIGN KEY(author_article_id) REFERENCES author_articles(author_article_id)
 )
--- New table
 CREATE TABLE coAuthors(
 	coAuthors_name text,
 	coAuthors_link text,
@@ -55,5 +54,28 @@ CREATE TABLE coAuthors(
 	author_id text,
 	PRIMARY KEY(coAuthors_id),
 	CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES authors(author_id)
+
+)
+
+-- New table
+CREATE TABLE profiles(
+	name text,
+	link text,
+	serpapi_link text,
+	cited_by integer,
+	affilations text,
+	email text,
+	author_id text,
+	thumbnail text,
+	PRIMARY KEY(author_id),
+	CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES authors(author_id)
+
+)
+CREATE TABLE users_auth(
+	uesr_id text,
+	user_email text,
+	user_password text,
+	user_token text DEFAULT 'standart',
+	PRIMARY KEY(user_id),
 
 )

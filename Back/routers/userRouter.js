@@ -23,15 +23,15 @@ router.post('/', async (req, res) => {
 // Authenticate user
 router.post('/login', async (req, res) => {
     try {
-        const text = "SELECT * FROM users WHERE email = $1 AND password = crypt($2, password)"
+        const text = "SELECT user_token FROM users_auth WHERE user_id = $1 AND user_password = crypt($2, user_password )"
 
-        const values = [req.body.email, req.body.password]
+        const values = [req.body.user_id, req.body.user_password]
 
         const { rows } = await postgresClient.query(text, values)
         if(!rows.length)
             return res.status(404).json({ message: 'User not found.' })
 
-        return res.status(200).json({ message: 'Authentication successful.' })
+        return res.status(200).json({ token: rows,message: 'Authentication successful.' })
     } catch (error) {
         console.log('Error occured', error.message)
         return res.status(400).json({ message: error.message })        

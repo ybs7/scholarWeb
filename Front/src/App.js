@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import ResultByID from "./components/ResultByID";
 import Authors from './pages/authors';
 import AuthorProfile from './pages/authorProfile'
+import ProtectedRoute from './util/ProtectedRoute';
 // import AuthorScrapper from './AuthorScrapper';
 
 function App() {
@@ -16,10 +17,11 @@ function App() {
       <BrowserRouter>
         <Header>
           <Routes>
-              <Route path="/home" element = {<SearchPopUp/>} />
-              <Route path="/authors" element = { <Authors/>} />
-              <Route path="/resultbyid" element={<ResultByID />} />
-              <Route path="/authorProfile" element={<AuthorProfile/>} />
+          <Route path="/login" element = {<Login/>} />
+              <Route path="/home" element = {<ProtectedRoute><SearchPopUp/></ProtectedRoute>} />
+              <Route path="/authors" element = { <ProtectedRoute><Authors/></ProtectedRoute>} />
+              <Route path="/resultbyid" element={<ProtectedRoute><ResultByID /></ProtectedRoute>} />
+              <Route path="/authorProfile" element={<ProtectedRoute><AuthorProfile/></ProtectedRoute>} />
               {/* <Route path="/authorProfile/:engine/:authorParam/:authorInfo" element ={<></>} */}
               {/* <Route path="/scrapper" element={<AuthorScrapper />} /> */}
               {/* <Route path="/home" element = {}/>
