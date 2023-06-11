@@ -3,10 +3,10 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Login', href: '/login', current: false },
-  { name: 'Home', href: '/home', current: true },
+  // { name: 'Login', href: '/login', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Search', href: '/home', current: true },
   { name: 'Author Profile', href: '/authorProfile', current: false },
-  { name: 'Messages', href: '/messages', current: false },
   
 ]
 
@@ -98,7 +98,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/profile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
@@ -108,7 +108,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="settings"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
@@ -118,7 +118,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="login"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out

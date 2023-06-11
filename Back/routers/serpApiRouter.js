@@ -81,25 +81,31 @@ router.post("/authorIdSearch", async (req, res) => {
       
 
        }
+       console.log("debug1")
 
-       for(let i=0; i<response.data.co_authors.length;i++){
-        console.log("coooo")
-        const coAuthorsText = "INSERT INTO coauthors (coauthors_name, coauthors_link, coauthors_id, coauthors_photo,coauthors_affilations,coauthors_email, author_id) VALUES ($1, $2, $3,$4,$5,$6,$7) RETURNING *";
-       const coAuthorsValues = [response.data.co_authors[i].name, response.data.co_authors[i].link,response.data.co_authors[i].author_id,
-       response.data.co_authors[i].thumbnail, response.data.co_authors[i].affiliations,response.data.co_authors[i].email, authorInfo];
-  
-      const { coAuthorsRows } = await postgresClient.query(coAuthorsText, coAuthorsValues);
-
-       }
-
-       //implement read all pages with next that include start=20
-       
-
-       
-        // console.log()
-        // console.log( req.body);
-        // console.log( process.env.API_KEY);
-        res.send(response.data);
+       //    for(let i=0; i<response.data.co_authors.length;i++){
+       //     console.log("coooo")
+       //     const cooChtext = "select * from coauthors WHERE coauthor_id = $1";
+       //     const cooChvalues = [response.data.co_authors.author_id];
+   
+       //     const { cooChrows } = await postgresClient.query(cooChtext, cooChvalues);
+   
+       //     if(cooChrows.length === 0){
+       //         const coAuthorsText = "INSERT INTO coauthors (coauthors_name, coauthors_link, coauthors_id, coauthors_photo,coauthors_affilations,coauthors_email, author_id) VALUES ($1, $2, $3,$4,$5,$6,$7) RETURNING *";
+       //    const coAuthorsValues = [response.data.co_authors[i].name, response.data.co_authors[i].link,response.data.co_authors[i].author_id,
+       //    response.data.co_authors[i].thumbnail, response.data.co_authors[i].affiliations,response.data.co_authors[i].email, authorInfo];
+     
+       //   const { coAuthorsRows } = await postgresClient.query(coAuthorsText, coAuthorsValues);
+   
+       //     }
+           
+           
+   
+       //    }
+   
+          //implement read all pages with next that include start=20
+           // res.send(response.data);
+           return res.status(200).json({ authorData: rows[0] })
     })
     .catch(function (error) {            
         console.log('Error occured', error.message)
@@ -107,6 +113,7 @@ router.post("/authorIdSearch", async (req, res) => {
     });
     }else {
         console.log("dolu")
+        return res.status(200).json({ authorData: rows[0] })
         // get datas from database
     }
    
@@ -148,7 +155,7 @@ router.post("/authorNameSearch", async (req, res) => {
             const profileText = "INSERT INTO profiles (author_id, name, link, serpapi_link,affiliations, email, cited_by, thumbnail) VALUES ($1, $2, $3,$4,$5,$6,$7,$8) RETURNING *";
             const profileValues = [response.data.profiles[i].author_id, response.data.profiles[i].name, response.data.profiles[i].link, response.data.profiles[i].serpapi_link, response.data.profiles[i].affiliations,
             response.data.profiles[i].email, response.data.profiles[i].cited_by, response.data.profiles[i].thumbnail];
-           
+            const { profileRows } = await postgresClient.query(profileText, profileValues);
             const interestChecktext = "select * from author_interest WHERE author_id = $1";
             const interestCheckvalues = [response.data.profiles[i].author_id];
 
@@ -169,9 +176,10 @@ router.post("/authorNameSearch", async (req, res) => {
             
 
              }                                            
-           const { profileRows } = await postgresClient.query(profileText, profileValues);
+           
            }
          res.send(response.data);
+        //  return res.status(200).json({ profiles: rows })
      })
      .catch(function (error) {            
          console.log('Error occured', error.message)
@@ -179,7 +187,7 @@ router.post("/authorNameSearch", async (req, res) => {
      });
 
         }else{
-            
+            return res.status(200).json({ profiles: rows })
         }
         
      
