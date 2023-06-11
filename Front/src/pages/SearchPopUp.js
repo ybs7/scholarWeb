@@ -133,6 +133,8 @@ function SearchPopUp(props) {
                 </div>
             </form>
             </div>
+            {/* empty div for style */}
+            <div/> 
         </div>
     );
 }

@@ -4,7 +4,7 @@ import { Button, Col, Container, Form, FormGroup, FormLabel, Row, Card } from "r
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
+    localStorage.clear();
     const navigate = useNavigate();
 
     const [userId,setUserId] = useState();
